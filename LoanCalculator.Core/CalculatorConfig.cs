@@ -13,6 +13,8 @@ namespace LoanCalculator.Core
         public static TimeSpan CheckMailStartDelay = TimeSpan.FromSeconds(0);
         public static TimeSpan CheckMailInterval = TimeSpan.FromMilliseconds(2000);
 
+        public static int NetworkExceptionChance = 10;
+        public static int FatalExceptionChance = 4000;
 
         // MailOut
         public static int MailOutDelayMs = 500;

@@ -19,11 +19,12 @@ namespace LoanCalculator.System
             var calculatorActor = system.ActorOf<CalculatorActor>();
             var mailOutActor = system.ActorOf<MailOutActor>("mailOutActor");
 
-            var mailInActor = system.ActorOf(Props.Create<MailInActor>(calculatorActor), "mailInActor");
+            var mailInCoordinatorActor = system.ActorOf(Props.Create<MailInCoordinatorActor>(calculatorActor)
+                , "mailInCoordinatorActor");
 
             var checkMailMsg = new CheckMail();
             system.Scheduler.ScheduleTellRepeatedly(CalculatorConfig.CheckMailStartDelay, CalculatorConfig.CheckMailInterval,
-                mailInActor, checkMailMsg, ActorRefs.Nobody);
+                mailInCoordinatorActor, checkMailMsg, ActorRefs.Nobody);
 
             Console.ReadKey();
         }

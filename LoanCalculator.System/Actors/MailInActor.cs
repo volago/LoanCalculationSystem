@@ -4,6 +4,7 @@ using LoanCalculator.Core.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,19 @@ namespace LoanCalculator.System.Actors
 
             Receive<CheckMail>(m =>
             {
-                Console.Write("[MailInActor        ]: Checking e-mail inbox ...");                
+                Console.Write("[MailInActor        ]: Checking e-mail inbox ...");
+
+                var ex = Helpers.GetRandomInt(CalculatorConfig.NetworkExceptionChance);
+                if (ex == 2)
+                {
+                    throw new SocketException();
+                }
+
+                ex = Helpers.GetRandomInt(CalculatorConfig.FatalExceptionChance);
+                if (ex == 5)
+                {
+                    throw new ArgumentNullException();
+                }
 
                 // emulate receiving n e-mails
                 int n = Helpers.GetRandomInt(CalculatorConfig.MaxNumberEmailsReceived);

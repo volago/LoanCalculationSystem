@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Actors\CalculatorActor.cs" />
     <Compile Include="Actors\MailInActor.cs" />
+    <Compile Include="Actors\MailInCoordinatorActor.cs" />
     <Compile Include="Actors\MailOutActor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
