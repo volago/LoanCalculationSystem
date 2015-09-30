@@ -16,10 +16,10 @@ namespace LoanCalculator.System
         {
             var system = ActorSystem.Create("LoanCalculatorSystem");
 
-            var calculatorCoordinatorActor = system.ActorOf<CalculatorCoordinatorActor>();
+            var calculatorCommanderActor = system.ActorOf<CalculatorCommanderActor>("calculatorCommanderActor");
             var mailOutActor = system.ActorOf<MailOutActor>("mailOutActor");
 
-            var mailInCoordinatorActor = system.ActorOf(Props.Create<MailInCoordinatorActor>(calculatorCoordinatorActor)
+            var mailInCoordinatorActor = system.ActorOf(Props.Create<MailInCoordinatorActor>(calculatorCommanderActor)
                 , "mailInCoordinatorActor");
 
             var checkMailMsg = new CheckMail();

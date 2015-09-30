@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B05FDEDC-5FE3-47F3-941D-EC1D3145860B}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{3694579D-1BB9-4B75-9075-467327996A19}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LoanCalculator.Core</RootNamespace>
-    <AssemblyName>LoanCalculator.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>LoanCalculator.Worker</RootNamespace>
+    <AssemblyName>LoanCalculator.Worker</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +31,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Akka, Version=1.0.4.12, Culture=neutral, processorArchitecture=MSIL">
@@ -71,12 +67,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculatorConfig.cs" />
-    <Compile Include="Helpers.cs" />
-    <Compile Include="Messages\CalculateLoan.cs" />
-    <Compile Include="Messages\CheckMail.cs" />
-    <Compile Include="Messages\JoinToSystem.cs" />
-    <Compile Include="Messages\SendMail.cs" />
+    <Compile Include="CalculatorActor.cs" />
+    <Compile Include="CalculatorCoordinatorActor.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +78,12 @@
     <None Include="protos\google\protobuf\csharp_options.proto" />
     <None Include="protos\google\protobuf\descriptor.proto" />
     <None Include="protos\tutorial\addressbook.proto" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoanCalculator.Core\LoanCalculator.Core.csproj">
+      <Project>{b05fdedc-5fe3-47f3-941d-ec1d3145860b}</Project>
+      <Name>LoanCalculator.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CHANGES.txt" />

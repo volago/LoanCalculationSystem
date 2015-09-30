@@ -8,17 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoanCalculator.System.Actors
+namespace LoanCalculator.Worker
 {
     public class CalculatorCoordinatorActor : ReceiveActor
     {
         IActorRef _calculator;
-        
+        private readonly ActorSelection _server = Context.ActorSelection(CalculatorConfig.CalculatorCommanderActorPath);
+
         public CalculatorCoordinatorActor()
         {
             Receive<CalculateLoan>(msg =>
             {
                 _calculator.Tell(msg);
+            });
+
+            Receive<JoinToSystem>(msg =>
+            {
+                _server.Tell(new JoinToSystem());
             });
         }
 

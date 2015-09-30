@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace LoanCalculator.System.Actors
+namespace LoanCalculator.Worker
 {
     public class CalculatorActor : TypedActor
         , IHandle<CalculateLoan>

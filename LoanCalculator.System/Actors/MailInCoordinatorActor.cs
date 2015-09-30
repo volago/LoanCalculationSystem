@@ -13,16 +13,16 @@ namespace LoanCalculator.System.Actors
         , IHandle<CheckMail>
     {
         private IActorRef _mailInActor;
-        private IActorRef _calculatorCoordinatorActor;
+        private IActorRef _calculatorCommanderActor;
 
-        public MailInCoordinatorActor(IActorRef calculatorCoordinatorActor)
+        public MailInCoordinatorActor(IActorRef calculatorCommanderActor)
         {
-            _calculatorCoordinatorActor = calculatorCoordinatorActor;
+            _calculatorCommanderActor = calculatorCommanderActor;
         }
 
         protected override void PreStart()
         {
-            _mailInActor = Context.ActorOf(Props.Create<MailInActor>(_calculatorCoordinatorActor), "mailInActor");
+            _mailInActor = Context.ActorOf(Props.Create<MailInActor>(_calculatorCommanderActor), "mailInActor");
             base.PreStart();
         }
 
