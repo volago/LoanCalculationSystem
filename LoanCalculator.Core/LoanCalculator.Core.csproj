@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculatorConfig.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Messages\CalculateLoan.cs" />
+    <Compile Include="Messages\CheckMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
