@@ -12,11 +12,11 @@ namespace LoanCalculator.System.Actors
 {
     public class MailInActor : ReceiveActor
     {
-        private IActorRef _calculator;
+        private IActorRef _calculatorCoordinatorActor;
 
-        public MailInActor(IActorRef calculator)
+        public MailInActor(IActorRef calculatorCoordinatorActor)
         {
-            _calculator = calculator;
+            _calculatorCoordinatorActor = calculatorCoordinatorActor;
 
             Receive<CheckMail>(m =>
             {
@@ -43,7 +43,7 @@ namespace LoanCalculator.System.Actors
                     var from = Helpers.GetRandomEmail();
                     var loanId = Helpers.GetRandomLoadId();
                     var calculationOrder = new CalculateLoan(from, loanId);
-                    _calculator.Tell(calculationOrder);
+                    _calculatorCoordinatorActor.Tell(calculationOrder);
                 }
             });
         }

@@ -32,7 +32,7 @@ namespace LoanCalculator.System.Actors
                 , msg.From, msg.LoanId, actorName, result);
             Console.WriteLine("[CalculatorActor  {1}]: Inbox size: {0}", mailBoxSize, actorName);
 
-            var mailOutActor = Context.ActorSelection("akka://LoanCalculatorSystem/user/mailOutActor");
+            var mailOutActor = Context.ActorSelection(CalculatorConfig.MailOutActorPath);
             mailOutActor.Tell(new SendMail(msg.From, result));
         }
     }

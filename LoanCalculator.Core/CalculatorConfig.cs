@@ -18,10 +18,18 @@ namespace LoanCalculator.Core
 
         // MailOut
         public static int MailOutDelayMs = 500;
+        public static string MailOutActorPath = "akka://LoanCalculatorSystem/user/mailOutActor";
 
         // Calculation
         public static int MaxResult = 400;
         public static int MessageProcessingTimeMinMs = 1000;
         public static int MessageProcessingTimeMaxMs = 10000;
+
+        // Calculation coordinator
+        public static int NumberOfCalculatorWorkers = 10;
+
     }
 }
+
+
+
