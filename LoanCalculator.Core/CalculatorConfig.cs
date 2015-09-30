@@ -10,5 +10,16 @@ namespace LoanCalculator.Core
     {
         // MailIn
         public static int MaxNumberEmailsReceived = 10;
+        public static TimeSpan CheckMailStartDelay = TimeSpan.FromSeconds(0);
+        public static TimeSpan CheckMailInterval = TimeSpan.FromMilliseconds(2000);
+
+
+        // MailOut
+        public static int MailOutDelayMs = 500;
+
+        // Calculation
+        public static int MaxResult = 400;
+        public static int MessageProcessingTimeMinMs = 1000;
+        public static int MessageProcessingTimeMaxMs = 10000;
     }
 }

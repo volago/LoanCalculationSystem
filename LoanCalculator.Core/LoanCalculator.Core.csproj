@@ -50,6 +50,7 @@
     <Compile Include="Helpers.cs" />
     <Compile Include="Messages\CalculateLoan.cs" />
     <Compile Include="Messages\CheckMail.cs" />
+    <Compile Include="Messages\SendMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
